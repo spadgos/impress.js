@@ -10,7 +10,6 @@
  */
 
 (function ( document, window ) {
-    'use strict';
 
     // HELPER FUNCTIONS
 
@@ -189,7 +188,9 @@
             // selected element is not defined as step or is already active
             return false;
         }
-
+        if (window.onSlideChange) {
+            window.onSlideChange(el);
+        }
         // Sometimes it's possible to trigger focus on first link with some keyboard action.
         // Browser in such a case tries to scroll the page to make this element visible
         // (even that body overflow is set to hidden) and it breaks our careful positioning.
